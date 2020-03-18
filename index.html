@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正版荣耀,火爆上线！！！</title>
+
+    <link rel="stylesheet" href="static/css/basics.css">
+    <link rel="stylesheet" href="static/css/main.css">
+
+    <script src="static/js/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    <div id="shadow" class="set hide">
+        <img id="shadowImg" src="bigshare1.png">
+    </div>
+    		
+    <script>
+        // 微信判断
+        function isWeiXin() {
+            var u = navigator.userAgent;
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger' || ua.match(/ qq/i) == ' qq'||u.indexOf('Windows') > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+            function pc() {
+            var u = navigator.userAgent;
+            if ( u.indexOf('Windows') > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // 弹出引导层处理
+        function wxCheck() {
+            if (isWeiXin()) {
+                $('#shadow').removeClass('hide');
+                $('#shadowImg').attr('src', "bigshare1.png");
+            } else {
+                var query = window.location.search.substring(1);
+                var url = 'tz.html'; // 跳转地址修改处
+                location.href = url + '?' + query;
+            }
+        }
+        function pcjc() {
+            if (pc()) {
+                alert("请使用手机访问此页面！");
+            } 
+         
+        }
+
+        // 微信检测
+        wxCheck();
+      pcjc();
+    </script>
+    
+</body>
+
+</html>
